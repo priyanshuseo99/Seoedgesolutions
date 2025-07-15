@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SEO Edge Solutions</title>
+  <style>
+    /* Reset & Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    html {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      scroll-behavior: smooth;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Header */
+    header {
+      background: #1a1a1a;
+      color: white;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #00ffcc;
+    }
+    nav a {
+      margin-left: 2rem;
+      color: white;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #00ffcc;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(to right, #001f3f, #0074D9);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      overflow: hidden;
+      position: relative;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      animation: fadeInUp 1s ease-in-out;
+    }
+    .hero .cta {
+      margin-top: 1rem;
+      background: #00ffcc;
+      color: #111;
+      padding: 0.8rem 1.5rem;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    .hero .cta:hover {
+      background: #00c9a7;
+    }
+
+    /* Parallax Layers */
+    .parallax {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+    }
+    .parallax-layer {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      opacity: 0.2;
+    }
+    .layer1 {
+      background-image: url('https://picsum.photos/1920/1080 ');
+      z-index: 1;
+      animation: parallax 20s linear infinite;
+    }
+    .layer2 {
+      background-image: url('https://picsum.photos/1920/1080?random=1');
+      z-index: 2;
+      animation: parallax 40s linear infinite;
+    }
+
+    @keyframes parallax {
+      from {
+        transform: translateY(0);
+      }
+      to {
+        transform: translateY(-100px);
+      }
+    }
+
+    /* Services Section */
+    .services {
+      padding: 4rem 2rem;
+      background: #f9f9f9;
+    }
+    .services h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      padding: 2rem;
+      width: 280px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+    }
+    .card:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 20px 30px rgba(0,0,0,0.2);
+    }
+    .card h3 {
+      margin-bottom: 1rem;
+      color: #0074D9;
+    }
+
+    /* About Founder */
+    .founder {
+      padding: 4rem 2rem;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .founder img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .founder p {
+      max-width: 600px;
+      margin-top: 1rem;
+      color: #555;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      background: #f0f0f0;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .testimonial {
+      max-width: 600px;
+      margin: auto;
+      font-style: italic;
+      color: #333;
+      font-size: 1.1rem;
+    }
+    .testimonial-author {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 4rem 2rem;
+      background: #fff;
+      text-align: center;
+    }
+    .contact form {
+      max-width: 600px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .contact input,
+    .contact textarea {
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    .contact button {
+      background: #0074D9;
+      color: white;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .contact button:hover {
+      background: #005ea6;
+    }
+
+    /* Footer */
+    footer {
+      background: #1a1a1a;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+    }
+    .footer-contact {
+      margin-bottom: 1rem;
+    }
+
+    /* Floating Button */
+    .floating-btn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: #00ffcc;
+      color: #111;
+      padding: 0.8rem 1.2rem;
+      border-radius: 5px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      cursor: pointer;
+      animation: float 2s ease-in-out infinite;
+    }
+    .floating-btn:hover {
+      background: #00c9a7;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .cards {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav a {
+        margin-left: 1rem;
+        font-size: 0.9rem;
+      }
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">SEO Edge Solutions</div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#guest-posts">Guest Posts</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="parallax">
+      <div class="parallax-layer layer1"></div>
+      <div class="parallax-layer layer2"></div>
+    </div>
+    <h1>🚀 Skyrocket Your Rankings with SEO Edge Solutions</h1>
+    <a href=" https://docs.google.com/spreadsheets/d/1-44rczhpCu-wjO4NHcoKhoCtWEbnBtbOr4CGWP_c6KU/edit?gid=1342887371#gid=1342887371" target="_blank" class="cta">📄 View Our Guest Post Site List</a>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services" id="services">
+    <h2>Our Services</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>SEO Services</h3>
+        <p>Boost your website's visibility and attract more organic traffic with our tailored SEO strategies.</p>
+      </div>
+      <div class="card">
+        <h3>Guest Post Services</h3>
+        <p>Get high-quality backlinks and increase brand exposure through strategic guest posting.</p>
+      </div>
+      <div class="card">
+        <h3>Link Building</h3>
+        <p>Build strong backlink profiles with ethical and effective link building techniques.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Founder Section -->
+  <section class="founder" id="founder">
+    <img src=" https://picsum.photos/150/150 " alt="Priyanshu" />
+    <h3>Priyanshu</h3>
+    <p>Founder of SEO Edge Solutions. A passionate digital marketer and SEO expert helping businesses grow online.</p>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <div class="testimonial">
+      "Working with SEO Edge Solutions transformed our online presence. Highly recommended!"
+    </div>
+    <div class="testimonial-author">— Happy Client</div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-contact">
+      📍 Jahangirganj, Ambedkar Nagar, Uttar Pradesh, India – 224147<br/>
+      📧 admin@seoedgesolutions.com
+    </div>
+    &copy; 2025 SEO Edge Solutions. All rights reserved.
+  </footer>
+
+  <!-- Floating Button -->
+  <div class="floating-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑ Top</div>
+
+  <!-- Scroll Animation JS -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const cards = document.querySelectorAll(".card");
+      const testimonials = document.querySelectorAll(".testimonial");
+
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, { threshold: 0.2 });
+
+      [...cards, ...testimonials].forEach(el => {
+        el.style.opacity = 0;
+        el.style.transform = "translateY(40px)";
+        observer.observe(el);
+      });
+    });
+  </script>
+
+</body>
+</html>
